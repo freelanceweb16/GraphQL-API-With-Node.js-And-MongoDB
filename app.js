@@ -1,6 +1,7 @@
 const Express = require('express');
 const expressGraphQL = require('express-graphql').graphqlHTTP
 const Mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 const {
     GraphQLID,
     GraphQLInt,
@@ -14,9 +15,9 @@ const {
 
 const app = Express();
 
-const userName = 'freelanceweb16';
-const password = 'Hl4F6H6UdKOl8tM7';
-const cluster = 'cluster0.qg8zu66.mongodb.net';
+const userName = process.env.USERNAMEMONGODB;
+const password = process.env.PASSWORDMONGODB;
+const cluster = process.env.CLUSTERMONGODB;
 const uri = "mongodb+srv://"+userName+":"+password+"@"+cluster+"/?retryWrites=true&w=majority";
 
 // Mongoose
